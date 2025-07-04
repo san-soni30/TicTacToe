@@ -37,7 +37,13 @@ const showWinner = (winner) => {
    disableBoxes();
 }
 
+const showDraw = () => {
+   msg.innerText = `You have no possible moves so play again!!!`;
+   msgContainer.classList.remove("hide");
+   disableBoxes();
+}
 const checkWinner = () => {
+   let flag = false;
    for(let w of wins){
       let pos1 = boxes[w[0]].innerText;
       let pos2 = boxes[w[1]].innerText;
@@ -46,9 +52,20 @@ const checkWinner = () => {
       if(pos1 != "" && pos2 != "" && pos3 != ""){
          if(pos1 === pos2 && pos2 === pos3){
             // console.log("Winner", pos1)
+            flag=true;
             showWinner(pos1);
          }
       }
+   }
+   let allBoxes = true;
+   for(let w of boxes){
+      if(w.innerText === ""){
+         allBoxes = false;
+         break;
+      }
+   }
+   if(!flag && allBoxes){
+      showDraw();
    }
 }
 
@@ -60,6 +77,7 @@ boxes.forEach((box) => {
          turnO = false;
       }else{
          box.innerText = "X";
+         box.style.color = "#d66868"
          turnO = true;
       }
       box.disabled = true;
