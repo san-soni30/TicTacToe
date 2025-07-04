@@ -34,7 +34,7 @@ TicTacToe/
 ▶️ How to Run Locally
 
 1. Clone or Download the repository:
-  - git clone https://github.com/yourusername/TicTacToe.git
+  - git clone https://github.com/san-soni30/TicTacToe.git
 2. Open index.html in your browser:
   - You can simply double-click it.
   - Or use a local server (like Live Server in VSCode).
